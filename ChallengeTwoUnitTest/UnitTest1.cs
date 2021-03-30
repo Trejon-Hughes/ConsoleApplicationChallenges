@@ -17,26 +17,26 @@ namespace ChallengeTwoUnitTest
         [TestMethod]
         public void TestAddClaimAndSeeClaims_AddClaimToListAndDisplay()
         {
-            ClaimRepo _repo = new ClaimRepo();
-            _repo.AddClaim(ID, claimType, description, amount, incident, claim);
-            Assert.IsTrue(_repo.SeeClaims());
+            ClaimRepo repo = new ClaimRepo();
+            repo.AddClaim(ID, claimType, description, amount, incident, claim);
+            Assert.IsTrue(repo.SeeClaims());
         }
 
         [TestMethod]
         public void TestNextClaim_DesplaysNextClaimInList()
         {
-            ClaimRepo _repo = new ClaimRepo();
-            _repo.AddClaim(ID, claimType, description, amount, incident, claim);
-            Assert.IsTrue(_repo.ShowNextClaim());
+            ClaimRepo repo = new ClaimRepo();
+            repo.AddClaim(ID, claimType, description, amount, incident, claim);
+            Assert.IsTrue(repo.ShowNextClaim());
         }
 
         [TestMethod]
         public void TestRemoveClaim_RemovesTheFirstClaimInList()
         {
-            ClaimRepo _repo = new ClaimRepo();
-            _repo.AddClaim(ID, claimType, description, amount, incident, claim);
-            _repo.RemoveClaim();
-            Assert.IsFalse(_repo.SeeClaims());
+            ClaimRepo repo = new ClaimRepo();
+            repo.AddClaim(ID, claimType, description, amount, incident, claim);
+            repo.RemoveClaim();
+            Assert.IsFalse(repo.SeeClaims());
         }
     }
 }
