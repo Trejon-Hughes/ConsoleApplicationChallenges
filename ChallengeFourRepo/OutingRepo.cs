@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeFourRepo
 {
-    class OutingRepo
+    public class OutingRepo
     {
         List<Outing> outings = new List<Outing>();
 
@@ -16,7 +16,11 @@ namespace ChallengeFourRepo
             {
                 foreach (Outing outing in outings)
                 {
-                    Console.WriteLine($"{outing.EventType}    {outing.PeopleAttended}    {outing.Date}    {outing.CostPerPerson}    {outing.CostPerPerson}");
+                    Console.WriteLine($"Event Type: {outing.EventType}\n" +
+                        $"People Attended: {outing.PeopleAttended}\n" +
+                        $"Date: {outing.Date.ToShortDateString()}\n" +
+                        $"Cost Per Person: ${outing.CostPerPerson}\n" +
+                        $"Cost For Event: ${outing.CostForEvent}\n");
                 }
                 return true;
             }
@@ -36,11 +40,11 @@ namespace ChallengeFourRepo
         {
             if (outings.Count > 0)
             {
-                double golfCost = 0;
-                double bowlingCost = 0;
-                double amusementCost = 0;
-                double concertCost = 0;
-                double totalCost = 0;
+                decimal golfCost = 0;
+                decimal bowlingCost = 0;
+                decimal amusementCost = 0;
+                decimal concertCost = 0;
+                decimal totalCost = 0;
                 foreach (Outing outing in outings)
                 {
                     switch (outing.EventType)
@@ -60,7 +64,17 @@ namespace ChallengeFourRepo
                     }
                 }
                 totalCost = golfCost + bowlingCost + amusementCost + concertCost;
-                Console.WriteLine($"Your total cost is: ${}");
+                Console.WriteLine($"Your total cost is: ${totalCost.ToString("F")}\n" +
+                    $"Golf outings: ${golfCost.ToString("F")}\n" +
+                    $"Bowling outings: ${bowlingCost.ToString("F")}\n" +
+                    $"Amusement Park outings: ${amusementCost.ToString("F")}\n" +
+                    $"Concert outings: ${concertCost.ToString("F")}");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("There are no outings listed");
+                return false;
             }
         }
     }

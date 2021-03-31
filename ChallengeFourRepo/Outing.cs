@@ -12,8 +12,8 @@ namespace ChallengeFourRepo
         public Events EventType { get; set; }
         public int PeopleAttended { get; set; }
         public DateTime Date { get; set; }
-        public double CostPerPerson { get; set; }
-        public double CostForEvent
+        public decimal CostPerPerson { get; set; }
+        public decimal CostForEvent
         {
             get
             {
@@ -26,7 +26,7 @@ namespace ChallengeFourRepo
 
         }
 
-        public Outing(Events eventType, int peopleAttended, DateTime date, double costPerPerson)
+        public Outing(Events eventType, int peopleAttended, DateTime date, decimal costPerPerson)
         {
             EventType = eventType;
             PeopleAttended = peopleAttended;
